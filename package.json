@@ -1,19 +1,24 @@
 {
-  "name": "38-file-reader",
+  "name": "36-d18",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack",
+    "bundle": "webpack",
     "watch": "webpack-dev-server --inline --hot",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "heroku-postbuild": "webpack -p --progress",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "9.3.0"
   },
   "jest": {
     "globals": {
       "__DEBUG__": false,
       "process.env": {
-        "NODE_ENV": "testing"
+        "NODE_ENV": "production"
       }
     },
     "verbose": true,
@@ -34,7 +39,6 @@
     "dotenv": "^5.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.18.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.9",
     "html-webpack-plugin": "^2.30.1",
@@ -52,5 +56,8 @@
     "uuid": "^3.2.1",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   }
 }
