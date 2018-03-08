@@ -24,5 +24,4 @@ branches:
   #   -
 before_script: npm i
 script:
-  - npm run lint
   - npm run test
