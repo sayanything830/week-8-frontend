@@ -21,30 +21,3 @@ localhost:8080/dashboard
 
 A navbar exists to direct a user to their dashboard and settings once they have signed in. The settings includes a form to create a profile and upload an avitar picture.
 
----
-
-### Environment Variables:
-
-front-end:
-```
-.dev.env:
-
-NODE_ENV=dev
-API_URL="http://localhost:3000"
-CDN_URL="/"
-```
-
-back-end:
-```
-.env:
-
-PORT=3000
-DEBUG=true
-CORS_ORIGINS=http://localhost:8080
-SECRET=PUMPKIN
-MONGO_URI=mongodb://localhost/picgram
-
-AWS_ACCESS_KEY_ID='<a aws access key id>'
-AWS_SECRET_ACCESS_KEY='<a aws secret access key>'
-AWS_BUCKET='<a aws bucket>'
-```
