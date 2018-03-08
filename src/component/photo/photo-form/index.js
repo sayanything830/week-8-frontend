@@ -114,21 +114,21 @@ class PhotoForm extends React.Component {
 
         <p>{this.state.photoError}</p>
         <label>Choose a File
-        <input
-          type='file'
-          name='photo'
-          onChange={this.handleChange}
-        /></label>
+          <input
+            type='file'
+            name='photo'
+            onChange={this.handleChange}
+          /></label>
 
 
         <fieldset>
           <label>Description
-          <input
-            type='text'
-            name='description'
-            value={this.state.description}
-            onChange={this.handleChange}
-          /></label>
+            <input
+              type='text'
+              name='description'
+              value={this.state.description}
+              onChange={this.handleChange}
+            /></label>
         </fieldset>
         <p>{this.state.descriptionError}</p>
 
