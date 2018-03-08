@@ -1,6 +1,6 @@
 # Picture Gram
 
-[![Build Status](https://travis-ci.org/sayanything830/week-8-backend.svg?branch=master)](https://travis-ci.org/sayanything830/week-8-backend)
+[![Build Status](https://travis-ci.org/sayanything830/week-8-frontend.svg?branch=master)](https://travis-ci.org/sayanything830/week-8-frontend)
 
 This is an application that allows a user to sign up and/or sign in, then redirects the user to their dashboard.
 
