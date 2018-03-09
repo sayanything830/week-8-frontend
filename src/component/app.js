@@ -32,7 +32,7 @@ export default class App extends React.Component {
               <Route exact path="/welcome/:auth" component={Landing}/>
               <Route exact path="/settings" component={Settings}/>
               <Route exact path="/dashboard" component={() =>
-                token
+                store.getState().token
                   ? <Dashboard token={token}/>
                   : <Redirect to="/welcome/signup"/>}
               />
