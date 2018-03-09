@@ -6,12 +6,12 @@ import {signupRequest, signinRequest} from '../../action/auth-actions';
 class Landing extends React.Component {
   constructor(props) {
     super(props);
-    // this.redirect = this.redirect.bind(this);
+    this.redirect = this.redirect.bind(this);
   }
 
-  // redirect(path) {
-  //   this.props.history.replace(path);
-  // }
+  redirect(path) {
+    this.props.history.replace(path);
+  }
 
   render() {
     console.log('__LANDING_PROPS__', this.props);
@@ -24,8 +24,8 @@ class Landing extends React.Component {
       <div className="landing-container">
         <h1>Welcome! Please {this.props.match.params.auth === 'signin' ? 'Signin' : 'Signup'}</h1>
         <AuthForm
-          // redirect={this.redirect}
-          // history={this.props.history}
+          redirect={this.redirect}
+          history={this.props.history}
           auth={params.auth}
           onComplete={onComplete}/>
       </div>
@@ -33,9 +33,9 @@ class Landing extends React.Component {
   }
 }
 
-let mapStateToProps = () => ({
-
+let mapStateToProps = state => ({
 });
+
 let mapDispatchToProps = dispatch => ({
   signup: user => dispatch(signupRequest(user)),
   signin: user => dispatch(signinRequest(user)),

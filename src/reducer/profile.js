@@ -14,7 +14,11 @@ export default (state = [],{type, payload}) => {
     validateProfile(payload);
     return [payload, ...state];
   case 'PROFILE_GET':
-    return [state];
+    return payload;
+  case 'PROFILE_UPDATE':
+    return payload;
+  // case 'TOKEN_DELETE':
+  //   return [];
   default:
     return state;
   }

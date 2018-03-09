@@ -1,5 +1,6 @@
 import './_photo-form.scss';
 import React from 'react';
+import {connect} from 'react-redux';
 
 const fileToDataURL = file => {
   return new Promise((resolve, reject) => {
@@ -94,7 +95,7 @@ class PhotoForm extends React.Component {
     }
   }
 
-  handleSubmit(event, error) {
+  handleSubmit(event) {
     event.preventDefault();
     // if(error) return new Error(error);
     this.props.onComplete(this.state);
@@ -114,21 +115,21 @@ class PhotoForm extends React.Component {
 
         <p>{this.state.photoError}</p>
         <label>Choose a File
-          <input
-            type='file'
-            name='photo'
-            onChange={this.handleChange}
-          /></label>
+        <input
+          type='file'
+          name='photo'
+          onChange={this.handleChange}
+        /></label>
 
 
         <fieldset>
           <label>Description
-            <input
-              type='text'
-              name='description'
-              value={this.state.description}
-              onChange={this.handleChange}
-            /></label>
+          <input
+            type='text'
+            name='description'
+            value={this.state.description}
+            onChange={this.handleChange}
+          /></label>
         </fieldset>
         <p>{this.state.descriptionError}</p>
 

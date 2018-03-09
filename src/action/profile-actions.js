@@ -11,6 +11,11 @@ export const getProfile = profile => ({
   payload: profile,
 });
 
+export const updateProfile = profile => ({
+  type: 'PROFILE_UPDATE',
+  payload: profile,
+});
+
 // -- Async Actions -- //
 export const createProfileRequest = (profile) => (dispatch) => {
   let token = localStorage.getItem('token');
@@ -19,7 +24,24 @@ export const createProfileRequest = (profile) => (dispatch) => {
     .set('Authorization', `Bearer ${token}`)
     .field('bio', profile.bio)
     .attach('avatar', profile.avatar)
-    .then( response => {
-      return dispatch(createProfile(response.body));
+    .then(res => {
+      return dispatch(createProfile(res.body));
     });
+};
+
+export const getProfileRequest = profile => dispatch => {
+  let token = localStorage.getItem('token');
+
+  return superagent.get(`${__API_URL__}/profiles/me`)
+    .set('Authorization', `Bearer ${token}`)
+    .then(res => dispatch(getProfile(res.body)));
+};
+
+export const updateProfileRequest = profile => dispatch => {
+  let token = localStorage.getItem('token');
+
+  return superagent.put(`${__API_URL__}/profiles/${profile._id}`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(profile)
+    .then(() => dispatch(updateProfile(profile)));
 };

@@ -5,7 +5,6 @@ export default class Avatar extends React.Component {
     return (
       <div className="avatar">
         <img src={this.props.avatar} />
-        <p>{this.props.bio}</p>
       </div>
     );
   }

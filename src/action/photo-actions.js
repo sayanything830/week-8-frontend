@@ -30,7 +30,10 @@ export const photoReset = () => ({
 
 // -- Async Actions -- //
 export const fetchPhotoRequest = () => dispatch => {
-  return superagent.get(`${__API_URL__}/photos`)
+  let token = localStorage.getItem('token');
+
+  return superagent.get(`${__API_URL__}/photos/me`)
+    .set('Authorization', `Bearer ${token}`)
     .then(res => dispatch(photoSet(res.body)))
     .catch(logError);
 };
