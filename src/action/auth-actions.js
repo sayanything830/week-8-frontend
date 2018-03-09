@@ -15,7 +15,7 @@ export const signupRequest = user => dispatch => {
   return superagent.post(`${__API_URL__}/signup`)
     .send(user)
     .then(res => {
-      return dispatch(tokenSet(res.text));
+      dispatch(tokenSet(res.text));
       try {
         localStorage.setItem('token', res.text);
       } catch(e) {
@@ -29,7 +29,7 @@ export const signinRequest = user => dispatch => {
   return superagent.get(`${__API_URL__}/login`)
     .auth(user.username, user.password)
     .then(res => {
-      return dispatch(tokenSet(res.text));
+      dispatch(tokenSet(res.text));
       try {
         localStorage.setItem('token', res.text);
       } catch(e) {

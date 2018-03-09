@@ -1,11 +1,13 @@
 import React from 'react';
 import {renderIf} from '../../../lib/utils';
 import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {createProfileRequest} from '../../../action/profile-actions';
 
-export default class AuthForm extends React.Component {
+class AuthForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={
+    this.state = {
       username: '',
       email: '',
       password: '',
@@ -33,12 +35,8 @@ export default class AuthForm extends React.Component {
     e.preventDefault();
     let {username, email, password} = this.state;
     this.props.onComplete({ username, email, password })
-      .then(action => {
-        this.setState({ username: '', email: '', password: '' });
-        if(!action.payload) return;
-        localStorage.token = action.payload;
-        return this.setState({token: true});
-      })
+      .then(() => this.setState({username: '', email: '', password: ''}))
+      .then(() => this.props.redirect('/dashboard'))
       .catch(error => this.setState({error}));
   }
 
@@ -87,3 +85,9 @@ export default class AuthForm extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  createProfile : profile => dispatch(createProfileRequest(profile)),
+});
+
+export default connect(null, mapDispatchToProps)(AuthForm);

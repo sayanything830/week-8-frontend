@@ -30,12 +30,12 @@ export default class App extends React.Component {
             <React.Fragment>
               <Navbar token={token}/>
               <Route exact path="/welcome/:auth" component={Landing}/>
+              <Route exact path="/settings" component={Settings}/>
               <Route exact path="/dashboard" component={() =>
                 token
                   ? <Dashboard token={token}/>
                   : <Redirect to="/welcome/signup"/>}
               />
-              <Route exact path="/settings" component={Settings}/>
             </React.Fragment>
           </BrowserRouter>
         </Provider>

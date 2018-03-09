@@ -9,7 +9,6 @@ export default class Navbar extends React.Component {
   render() {
     return (
       <header>
-        <p>Avatar will appear here</p>
         <Avatar/>
         <nav>
           <ul>
@@ -25,7 +24,6 @@ export default class Navbar extends React.Component {
                 <li><Link to="/settings">Settings</Link></li>
                 <li><Link to="/welcome/signup">Signup</Link></li>
                 <li><Link to="/welcome/signin">Signin</Link></li>
-                {/* <li onClick={this.props.tokenDelete}><Link to="/welcome/signin">Logout</Link></li> */}
               </React.Fragment>
             )}
           </ul>
